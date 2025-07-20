@@ -18,13 +18,15 @@ using System.Linq;
 using System.Diagnostics;
 namespace AsyncAwaitDemo
 {
+    internal class Bacon { }
+    internal class Eggs { }
+    internal class Toast { }
+    internal class Juice { }
+    internal class Coffee { }
+   
     class Program
     {
-        internal class Bacon { }
-        internal class Eggs { }
-        internal class Toast { }
-        internal class Juice { }
-        internal class Coffee { }
+        
 
         static async Task Main(string[] args)
         {
@@ -46,19 +48,40 @@ namespace AsyncAwaitDemo
             Task<Toast> toastTask = MakeToastWithButterAndJamAsync(2);
             // Await the tasks to get the results (this will be after all have run concurrently)
             //7. Eggs are burnt
-            Eggs eggs = await eggsTask;
-            Console.WriteLine("Eggs are ready");
+           // Eggs eggs = await eggsTask;
+            //Console.WriteLine("Eggs are ready");
 
             //8. Bacon are ready
-            Bacon bacon = await baconTask;
-            Console.WriteLine("Bacon is ready");
+            //Bacon bacon = await baconTask;
+            //Console.WriteLine("Bacon is ready");
 
-            Toast toast = await toastTask;
+           // Toast toast = await toastTask;
             
             //ApplyButter(toast);
             //ApplyJam(toast);
-            Console.WriteLine("Toast is ready");
+            
+            //Console.WriteLine("Toast is ready");
 
+           var breakfastTasks = new List<Task> { eggsTask,baconTask,toastTask};
+            while (breakfastTasks.Count > 0)
+            {
+                Task finishedTask = await Task.WhenAny(breakfastTasks);
+                if(finishedTask == eggsTask)
+                {
+                    Console.WriteLine("eggs are ready");
+                }
+                else if(finishedTask == baconTask)
+                {
+                    Console.WriteLine("bacon is ready");
+                }
+                else if(finishedTask == toastTask)
+                {
+                    Console.WriteLine("toast is ready");
+                }
+                await finishedTask ; 
+                breakfastTasks.Remove(finishedTask);
+
+            }
             //6. Pour Juice
             Juice oj = PourOJ();
             Console.WriteLine("Orange juice is ready");
@@ -68,23 +91,32 @@ namespace AsyncAwaitDemo
             Console.WriteLine($"Total time taken: {stopwatch.Elapsed.TotalSeconds:F2} seconds");
 
         }
-
-        private static Juice PourOJ()
-        {
-            Console.WriteLine("Pouring a glass of orange juice...");
-            return new Juice();
-        }
         private static Coffee PourCoffee()
         {
             Console.WriteLine("Pouring a cup of coffee...");
             return new Coffee();
         }
-        private static void ApplyJam(Toast toast)=>
         
+        static async Task<Toast> MakeToastWithButterAndJamAsync(int number)
+        {
+            var toast = await ToastBreadAsync(number);
+            ApplyButter(toast);
+            ApplyJam(toast);
+
+            return toast;
+        }
+        private static void ApplyJam(Toast toast) =>
+
             Console.WriteLine("Putting jam on the toast...");
 
         private static void ApplyButter(Toast toast) =>
             Console.WriteLine("Putting butter on the toast...");
+        private static Juice PourOJ()
+        {
+            Console.WriteLine("Pouring a glass of orange juice...");
+            return new Juice();
+        }
+
         private static async Task<Toast> ToastBreadAsync(int slices)
         {
             for (int slice = 0; slice < slices; slice++)
@@ -93,16 +125,10 @@ namespace AsyncAwaitDemo
             }
             Console.WriteLine("Start toasting...");
             await Task.Delay(3000); // Simulate time taken to toast bread
+            
             return new Toast();
         }
-        private static async Task<Toast> MakeToastWithButterAndJamAsync(int number)
-        {
-            var toast = await ToastBreadAsync(number);
-            ApplyButter(toast);
-            ApplyJam(toast);
-
-            return toast;
-        }
+       
 
         private static async Task<Bacon> FryBaconAsync(int slices)
         {
@@ -131,8 +157,6 @@ namespace AsyncAwaitDemo
      
             return new Eggs();
         }
-
-
 
     }
 }
