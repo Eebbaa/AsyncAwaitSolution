@@ -26,6 +26,8 @@ Reference: [Asynchronous Programming in C#] (https://learn.microsoft.com/en-us/d
       Bacon	Represents cooked bacon
       Toast	Represents toasted bread
       Juice	Represents a glass of juice
+
+      
 🔹 Methods
       Method	Purpose
       PourCoffee()	Simulates pouring coffee
@@ -35,6 +37,8 @@ Reference: [Asynchronous Programming in C#] (https://learn.microsoft.com/en-us/d
       ApplyButter(Toast toast)	Adds butter to toast
       ApplyJam(Toast toast)	Adds jam to toast
       PourOJ()	Simulates pouring orange juice
+
+      
 ⏱ How It Works
 
       Each task uses Task.Delay().Wait() to simulate real cooking time:
