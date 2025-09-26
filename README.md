@@ -1,69 +1,52 @@
-# AsyncAwaitSolution
+AsyncAwaitDemo
 
-A simple C# console application demonstrating synchronous simulation of preparing breakfast. This project is intended to show how tasks can be modeled with Task.Delay to simulate time-consuming operations, and it can serve as a foundation for learning asynchronous programming in C#.
+A C# console application demonstrating preparing a breakfast synchronously. The program simulates time-consuming cooking tasks using Task.Delay and prints the steps and total preparation time.
 
 Reference: Asynchronous Programming in C#
 
-🍳 Description
-
-The program simulates preparing a full breakfast:
+🥞 Features
 
 Pour a cup of coffee
 
-Fry two eggs
+Fry eggs
 
-Fry three slices of bacon
+Fry bacon
 
-Toast two slices of bread and add butter and jam
+Toast bread and add butter & jam
 
-Pour a glass of orange juice
+Pour orange juice
 
-Serve everything and print total time taken
+Measure and display total time taken
 
-All steps are currently synchronous, meaning each step waits for the previous one to finish. This is achieved using Task.Delay().Wait() to simulate time-consuming operations like cooking or toasting.
+🧩 Classes
+Class	Description
+Coffee	Represents a cup of coffee
+Eggs	Represents cooked eggs
+Bacon	Represents cooked bacon
+Toast	Represents toasted bread
+Juice	Represents a glass of juice
+🔹 Methods
+Method	Purpose
+PourCoffee()	Simulates pouring coffee
+FryEggs(int howMany)	Simulates frying eggs
+FryBacon(int slices)	Simulates frying bacon
+ToastBread(int slices)	Simulates toasting bread
+ApplyButter(Toast toast)	Adds butter to toast
+ApplyJam(Toast toast)	Adds jam to toast
+PourOJ()	Simulates pouring orange juice
+⏱ How It Works
 
-⚡ Classes & Methods
-Main Entities
+Each cooking task uses Task.Delay().Wait() to simulate real time:
 
-Coffee
+Frying eggs: 3s warming + 3s cooking
 
-Eggs
+Frying bacon: 3s per side
 
-Bacon
+Toasting bread: 3s
 
-Toast
+Stopwatch measures total time for all steps.
 
-Juice
-
-Main Methods
-
-PourCoffee() → Simulates pouring coffee
-
-FryEggs(int howMany) → Simulates frying eggs
-
-FryBacon(int slices) → Simulates frying bacon
-
-ToastBread(int slices) → Simulates toasting bread
-
-ApplyButter(Toast toast) → Apply butter on toast
-
-ApplyJam(Toast toast) → Apply jam on toast
-
-PourOJ() → Pour orange juice
-
-⏱ Simulation Details
-
-Each operation is delayed to mimic real cooking time:
-
-Frying eggs: 3 seconds warming + 3 seconds cooking
-
-Frying bacon: 3 seconds per side
-
-Toasting bread: 3 seconds
-
-Total time is measured using Stopwatch.
-
-📝 Usage
+💻 Usage
 
 Clone the repository or copy the code into a C# console project.
 
@@ -72,10 +55,10 @@ Run the project:
 dotnet run
 
 
-Observe console output showing step-by-step preparation and total time.
+Observe the console output showing step-by-step preparation and total time.
 
-📌 Notes
+⚠️ Notes
 
-This version is synchronous.
+Currently, all tasks are synchronous and run sequentially.
 
-It can be refactored using async/await to allow parallel cooking, reducing total preparation time.
+This project can be extended to async/await for parallel cooking, reducing total preparation time.
