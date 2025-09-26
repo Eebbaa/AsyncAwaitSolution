@@ -26,17 +26,15 @@ Class	Description
   Toast	Represents toasted bread
   Juice	Represents a glass of juice
 
-🔹 Methods
-
-Method	                  Purpose
-PourCoffee()-----------------Simulates pouring coffee
-FryEggs(int howMany)---------Simulates frying eggs
-FryBacon(int slices)---------Simulates frying bacon
-ToastBread(int slices)-------Simulates toasting bread
-ApplyButter(Toast toast)-----Adds butter to toast
-ApplyJam(Toast toast)--------Adds jam to toast
-PourOJ() --------------------Simulates pouring orange juice
-
+Methods
+Method	Purpose
+PourCoffee()	Simulates pouring coffee
+FryEggs(int howMany)	Simulates frying eggs
+FryBacon(int slices)	Simulates frying bacon
+ToastBread(int slices)	Simulates toasting bread
+ApplyButter(Toast toast)	Adds butter to toast
+ApplyJam(Toast toast)	Adds jam to toast
+PourOJ()	Simulates pouring orange juice
 ⏱ How It Works
 
 Each cooking task uses Task.Delay().Wait() to simulate real time:
