@@ -3,7 +3,7 @@ AsyncAwaitDemo
 A C# console application demonstrating preparing breakfast synchronously.
 The program simulates cooking tasks with delays using Task.Delay and prints each step along with the total preparation time.
 
-Reference: Asynchronous Programming in C#
+Reference: [Asynchronous Programming in C#] (https://learn.microsoft.com/en-us/dotnet/csharp/asynchronous-programming/?redirectedfrom=MSDN)
 
 🥞 Features
 
