@@ -29,13 +29,20 @@ Reference: [Asynchronous Programming in C#] (https://learn.microsoft.com/en-us/d
 
       
 🔹 Methods
-      Method	Purpose
+      Method	Purpose  
+      
       PourCoffee()	Simulates pouring coffee
+      
       FryEggs(int howMany)	Simulates frying eggs
+      
       FryBacon(int slices)	Simulates frying bacon
+      
       ToastBread(int slices)	Simulates toasting bread
+      
       ApplyButter(Toast toast)	Adds butter to toast
+      
       ApplyJam(Toast toast)	Adds jam to toast
+      
       PourOJ()	Simulates pouring orange juice
 
       
