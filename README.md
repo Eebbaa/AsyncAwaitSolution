@@ -1,32 +1,32 @@
 AsyncAwaitDemo
 
-A C# console application demonstrating preparing a breakfast synchronously. The program simulates time-consuming cooking tasks using Task.Delay and prints the steps and total preparation time.
+A C# console application demonstrating preparing breakfast synchronously.
+The program simulates cooking tasks with delays using Task.Delay and prints each step along with the total preparation time.
 
 Reference: Asynchronous Programming in C#
 
 🥞 Features
 
-      Pour a cup of coffee
+Pour a cup of coffee
 
-      Fry eggs
-      
-      Fry bacon
-      
-      Toast bread and add butter & jam
-      
-      Pour orange juice
+Fry eggs
 
-Measure and display total time taken
+Fry bacon
+
+Toast bread and add butter & jam
+
+Pour orange juice
+
+Measure and display total time
 
 🧩 Classes
 Class	Description
-  Coffee	Represents a cup of coffee
-  Eggs	Represents cooked eggs
-  Bacon	Represents cooked bacon
-  Toast	Represents toasted bread
-  Juice	Represents a glass of juice
-
-Methods
+Coffee	Represents a cup of coffee
+Eggs	Represents cooked eggs
+Bacon	Represents cooked bacon
+Toast	Represents toasted bread
+Juice	Represents a glass of juice
+🔹 Methods
 Method	Purpose
 PourCoffee()	Simulates pouring coffee
 FryEggs(int howMany)	Simulates frying eggs
@@ -37,30 +37,31 @@ ApplyJam(Toast toast)	Adds jam to toast
 PourOJ()	Simulates pouring orange juice
 ⏱ How It Works
 
-Each cooking task uses Task.Delay().Wait() to simulate real time:
+Each task uses Task.Delay().Wait() to simulate real cooking time:
 
-    Frying eggs: 3s warming + 3s cooking
+Frying eggs: 3s warming + 3s cooking
 
-    Frying bacon: 3s per side
+Frying bacon: 3s per side
 
-    Toasting bread: 3s
+Toasting bread: 3s
 
-    Stopwatch measures total time for all steps.
+Tasks are executed synchronously, one after another.
 
-Usage
+Stopwatch measures total time taken for all steps.
 
-  Clone the repository or copy the code into a C# console project.
+💻 Usage
 
-  Run the project:
+Clone the repository or copy the code into a C# console project.
 
-    dotnet run
+Build and run:
+
+dotnet run
 
 
-Observe the console output showing step-by-step preparation and total time.
+Observe console output showing each step and the total preparation time.
 
+⚠️ Notes
 
-Notes
+Currently, all tasks are synchronous.
 
-  Currently, all tasks are synchronous and run sequentially.
-
-  This project can be extended to async/await for parallel cooking, reducing total preparation time.
+Can be refactored using async/await to allow parallel cooking, reducing total time.
